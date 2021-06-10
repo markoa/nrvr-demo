@@ -1,0 +1,22 @@
+# Example Semaphore deployment dashboard configuration
+# https://docs.semaphoreci.com/essentials/deployment-dashboards/
+apiVersion: v1alpha
+kind: Dashboard
+metadata:
+  name: nrvr-deployment
+  title: Nrvr Deployment
+  id: 123
+  create_time: "1623323162"
+  update_time: "1623323528"
+spec:
+  widgets:
+  - name: "\U0001F680 Deploys to production"
+    type: list_pipelines
+    filters:
+      pipeline_file: .semaphore/production.yml
+      project_id: 100
+  - name: Deploys to staging
+    type: list_pipelines
+    filters:
+      pipeline_file: .semaphore/staging.yml
+      project_id: 100
