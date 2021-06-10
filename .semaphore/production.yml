@@ -13,7 +13,7 @@ blocks:
             - checkout
             - cache restore
             - bundle install --path .bundle
-            - ruby deploy.rb production
+            - ruby deploy.rb production PRODUCTION_KEY
       secrets:
         - name: nrvr-demo-deploy-keys
   - name: Sanity check
