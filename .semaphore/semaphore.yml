@@ -1,5 +1,5 @@
 version: v1.0
-name: Initial Pipeline
+name: CI pipeline
 agent:
   machine:
     type: e1-standard-2
@@ -32,8 +32,8 @@ blocks:
             - sleep 2
 promotions:
   - name: Staging
-    pipeline_file: pipeline_2.yml
+    pipeline_file: staging.yml
   - name: Production
-    pipeline_file: pipeline_3.yml
+    pipeline_file: production.yml
     auto_promote:
-      when: branch = 'master' AND result = 'passed'
+      when: branch = 'main' AND result = 'passed'
