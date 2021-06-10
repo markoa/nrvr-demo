@@ -14,10 +14,8 @@ blocks:
             - cache restore
             - bundle install --path .bundle
             - cache store
-            - echo "building code..."
-            - sleep 2
-            - echo "linting..."
-            - sleep 2
+            - ruby build.rb > build.log
+            - artifact push workflow build.log
   - name: Test
     task:
       prologue:

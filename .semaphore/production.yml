@@ -20,4 +20,6 @@ blocks:
         - name: Smoke test
           commands:
             - echo "running smoke tests..."
-            - sleep 1
+            - artifact pull workflow build.log
+            - echo "here's what we built:"
+            - cat build.log
