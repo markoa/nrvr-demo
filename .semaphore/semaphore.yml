@@ -1,0 +1,39 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Build
+    task:
+      jobs:
+        - name: Build code
+          commands:
+            - checkout
+            - echo "building code..."
+            - sleep 2
+            - echo "linting..."
+            - sleep 2
+  - name: Test
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: Unit tests
+          commands:
+            - checkout
+            - echo "running unit tests..."
+            - sleep 1
+        - name: E2E tests
+          commands:
+            - echo "running e2e tests..."
+            - sleep 2
+promotions:
+  - name: Staging
+    pipeline_file: pipeline_2.yml
+  - name: Production
+    pipeline_file: pipeline_3.yml
+    auto_promote:
+      when: branch = 'master' AND result = 'passed'
