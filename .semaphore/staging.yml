@@ -11,4 +11,6 @@ blocks:
         - name: Deploy
           commands:
             - checkout
-            - echo "deploying to staging"
+            - cache restore
+            - bundle install --path .bundle
+            - ruby deploy.rb staging

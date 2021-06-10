@@ -11,8 +11,9 @@ blocks:
         - name: Deploy to production
           commands:
             - checkout
-            - echo "deploying to production..."
-            - sleep 2
+            - cache restore
+            - bundle install --path .bundle
+            - ruby deploy.rb production
   - name: Sanity check
     task:
       jobs:

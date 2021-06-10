@@ -1,0 +1,20 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    concurrent-ruby (1.1.9)
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
+    i18n (1.8.10)
+      concurrent-ruby (~> 1.0)
+
+PLATFORMS
+  x86_64-darwin-19
+
+DEPENDENCIES
+  faker
+
+RUBY VERSION
+   ruby 2.7.2p137
+
+BUNDLED WITH
+   2.2.15

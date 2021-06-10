@@ -11,6 +11,9 @@ blocks:
         - name: Build code
           commands:
             - checkout
+            - cache restore
+            - bundle install --path .bundle
+            - cache store
             - echo "building code..."
             - sleep 2
             - echo "linting..."
@@ -20,6 +23,8 @@ blocks:
       prologue:
         commands:
           - checkout
+          - cache restore
+          - bundle install --path .bundle
       jobs:
         - name: Unit tests
           commands:
