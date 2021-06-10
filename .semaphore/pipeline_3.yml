@@ -1,0 +1,22 @@
+version: v1.0
+name: Production deployment
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Deploy
+    task:
+      jobs:
+        - name: Deploy to production
+          commands:
+            - checkout
+            - echo "deploying to production..."
+            - sleep 2
+  - name: Sanity check
+    task:
+      jobs:
+        - name: Smoke test
+          commands:
+            - echo "running smoke tests..."
+            - sleep 1

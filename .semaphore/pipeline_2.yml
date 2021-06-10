@@ -1,0 +1,14 @@
+version: v1.0
+name: Staging deployment
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Deploy to staging
+    task:
+      jobs:
+        - name: Deploy
+          commands:
+            - checkout
+            - echo "deploying to staging"
