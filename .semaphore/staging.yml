@@ -14,3 +14,5 @@ blocks:
             - cache restore
             - bundle install --path .bundle
             - ruby deploy.rb staging
+      secrets:
+        - name: nrvr-demo-deploy-keys
